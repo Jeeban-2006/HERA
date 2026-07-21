@@ -1,0 +1,41 @@
+FROM node:20-alpine AS builder
+
+WORKDIR /app
+
+# Install pnpm
+RUN npm install -g pnpm
+
+# Preserve monorepo structure so tsconfig paths resolve:
+# "../../shared/*" from apps/web/ → /app/shared/ ✅
+
+# Copy shared types first
+COPY shared/ ./shared/
+
+# Copy web app dependency files
+COPY apps/web/package.json apps/web/pnpm-lock.yaml* ./apps/web/
+
+# Install dependencies from apps/web/
+WORKDIR /app/apps/web
+RUN pnpm install --shamefully-hoist --frozen-lockfile
+
+# Copy web app source
+COPY apps/web/ .
+
+# Build Next.js
+RUN pnpm run build
+
+# ── Production stage ──────────────────────────────────────────────────────────
+FROM node:20-alpine
+
+WORKDIR /app/apps/web
+
+RUN npm install -g pnpm
+
+COPY --from=builder /app/apps/web/package.json ./
+COPY --from=builder /app/apps/web/node_modules ./node_modules
+COPY --from=builder /app/apps/web/.next ./.next
+COPY --from=builder /app/shared ../../shared
+
+EXPOSE 3000
+
+CMD ["pnpm", "start"]

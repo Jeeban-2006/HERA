@@ -1,0 +1,150 @@
+{
+  "insulin_resistant": [
+    {
+      "category": "Diet",
+      "title": "Low-Glycaemic Index Diet",
+      "desc": "Avoid refined carbs and sugar. Focus on complex carbohydrates, lean protein, and healthy fats to improve insulin sensitivity.",
+      "priority": "high",
+      "icon_name": "Leaf"
+    },
+    {
+      "category": "Exercise",
+      "title": "Resistance Training",
+      "desc": "Aim for 3-4 sessions per week of strength training. Building muscle mass significantly improves insulin receptor sensitivity.",
+      "priority": "high",
+      "icon_name": "Dumbbell"
+    },
+    {
+      "category": "Sleep",
+      "title": "Consistent Sleep Schedule",
+      "desc": "Aim for 7-9 hours of quality sleep. Poor sleep elevates cortisol which directly worsens insulin resistance.",
+      "priority": "medium",
+      "icon_name": "Moon"
+    },
+    {
+      "category": "Supplement",
+      "title": "Inositol (Myo + D-Chiro)",
+      "desc": "A 40:1 ratio of Myo-inositol and D-chiro-inositol is clinically shown to improve insulin sensitivity in PCOD patients.",
+      "priority": "medium",
+      "icon_name": "FlaskConical"
+    },
+    {
+      "category": "Stress",
+      "title": "Cortisol Management",
+      "desc": "Incorporate daily mindfulness, yoga, or breathwork. Chronic stress elevates cortisol levels, compounding insulin resistance.",
+      "priority": "medium",
+      "icon_name": "Brain"
+    }
+  ],
+  "inflammatory": [
+    {
+      "category": "Diet",
+      "title": "Anti-Inflammatory Foods",
+      "desc": "Focus on turmeric, berries, leafy greens, and avoid processed foods, gluten, or dairy if you have sensitivities.",
+      "priority": "high",
+      "icon_name": "Leaf"
+    },
+    {
+      "category": "Supplement",
+      "title": "Omega-3 Fatty Acids",
+      "desc": "Consider high-quality fish oil or algae oil supplements to systematically reduce systemic inflammation markers.",
+      "priority": "high",
+      "icon_name": "FlaskConical"
+    },
+    {
+      "category": "Gut Health",
+      "title": "Probiotics & Prebiotics",
+      "desc": "Support your microbiome with fermented foods or a probiotic supplement to reduce immune-driven inflammation.",
+      "priority": "medium",
+      "icon_name": "Activity"
+    },
+    {
+      "category": "Sleep",
+      "title": "Optimize Rest",
+      "desc": "Prioritize restorative sleep. Inflammation heals during deep sleep phases, making 8 hours crucial.",
+      "priority": "medium",
+      "icon_name": "Moon"
+    },
+    {
+      "category": "Stress",
+      "title": "Reduce Environmental Stressors",
+      "desc": "Minimize exposure to endocrine disruptors in plastics and cosmetics to lower toxic burden.",
+      "priority": "medium",
+      "icon_name": "Brain"
+    }
+  ],
+  "adrenal": [
+    {
+      "category": "Stress",
+      "title": "Aggressive Cortisol Management",
+      "desc": "This is your primary focus. Prioritize daily meditation, somatic tracking, and radical boundary setting to lower DHEA-S.",
+      "priority": "high",
+      "icon_name": "Brain"
+    },
+    {
+      "category": "Diet",
+      "title": "Reduce Stimulants",
+      "desc": "Strictly limit caffeine and alcohol. Replace coffee with matcha or herbal teas to prevent adrenal spikes.",
+      "priority": "high",
+      "icon_name": "Coffee"
+    },
+    {
+      "category": "Supplement",
+      "title": "Magnesium Glycinate",
+      "desc": "Take 300-400mg before bed to soothe the nervous system, lower cortisol, and improve sleep depth.",
+      "priority": "medium",
+      "icon_name": "FlaskConical"
+    },
+    {
+      "category": "Exercise",
+      "title": "Low-Intensity Movement",
+      "desc": "Avoid HIIT or extreme cardio which spikes cortisol. Opt for pilates, walking, and restorative yoga.",
+      "priority": "medium",
+      "icon_name": "Heart"
+    },
+    {
+      "category": "Sleep",
+      "title": "Protect Your Circadian Rhythm",
+      "desc": "Get morning sunlight within 30 minutes of waking and limit blue light at night to stabilize your cortisol curve.",
+      "priority": "high",
+      "icon_name": "Moon"
+    }
+  ],
+  "post_pill": [
+    {
+      "category": "Time",
+      "title": "Patience is Key",
+      "desc": "Your body may take 3-6 months to restore natural ovulation and communication between the brain and ovaries.",
+      "priority": "high",
+      "icon_name": "Clock"
+    },
+    {
+      "category": "Supplement",
+      "title": "Replenish Nutrients",
+      "desc": "The pill depletes B-vitamins, zinc, and magnesium. Consider a high-quality multivitamin to restore baseline levels.",
+      "priority": "high",
+      "icon_name": "FlaskConical"
+    },
+    {
+      "category": "Diet",
+      "title": "Support Liver Detoxification",
+      "desc": "Cruciferous vegetables (broccoli, cauliflower) help your liver safely process and clear synthetic hormones.",
+      "priority": "medium",
+      "icon_name": "Leaf"
+    },
+    {
+      "category": "Exercise",
+      "title": "Gentle Cycle Syncing",
+      "desc": "Don't overstress the body. Focus on consistent, moderate movement while waiting for your cycle to return.",
+      "priority": "medium",
+      "icon_name": "Dumbbell"
+    },
+    {
+      "category": "Tracking",
+      "title": "Monitor Basal Body Temp",
+      "desc": "Track your BBT every morning to definitively confirm when natural ovulation successfully resumes.",
+      "priority": "medium",
+      "icon_name": "Calendar"
+    }
+  ]
+}
