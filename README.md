@@ -180,6 +180,8 @@ pnpm install && pnpm dev
 | `POST` | `/auth/login` | Login + JWT tokens | 10/min per IP |
 | `POST` | `/pcod/analyze` | Run PCOD ML analysis | 5/min per user |
 | `GET` | `/pcod/history` | Past analyses | — |
+| `POST` | `/period/start` | Log new period start | — |
+| `GET` | `/period/history` | Get cycle predictions & history | — |
 | `POST` | `/mood/log` | Log today's mood | 20/min per user |
 | `GET` | `/mood/correlation` | AI pattern analysis | — |
 | `POST` | `/safety/route` | Safe route calculation | 5/min |
@@ -243,6 +245,7 @@ pnpm install && pnpm dev
 | 5 | Safety Service (NetworkX routing) | ✅ Complete |
 | 6 | HERA AI Companion (Groq/Llama 3.1) | ✅ Complete |
 | 7 | Production Security (encryption, DPDP) | ✅ Complete |
+| 8 | Period Tracker (Prediction engine & UI) | ✅ Complete |
 
 ---
 
