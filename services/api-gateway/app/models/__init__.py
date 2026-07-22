@@ -8,6 +8,7 @@ from app.models.user import (
     EmergencyContact,
     SOSEvent,
 )
+from app.models.period import PeriodLog, PeriodSymptom
 from app.services.audit import AuditLog  # noqa: F401 — registers table with Base.metadata
 
 __all__ = [
@@ -17,5 +18,7 @@ __all__ = [
     "MoodLog",
     "EmergencyContact",
     "SOSEvent",
+    "PeriodLog",
+    "PeriodSymptom",
     "AuditLog",
 ]

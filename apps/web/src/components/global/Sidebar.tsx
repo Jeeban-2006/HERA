@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion } from 'framer-motion';
-import { Home, Zap, Moon, Shield, MapPin, Settings, LogOut, User as UserIcon } from 'lucide-react';
+import { Home, Zap, Moon, Shield, MapPin, Droplets, Settings, LogOut, User as UserIcon } from 'lucide-react';
 import { useLogout } from '@/hooks/useAuth';
 import { useState } from 'react';
 import { User } from '@/state/auth.store';
@@ -13,6 +13,7 @@ const navItems = [
   { href: '/dashboard/pcod', label: 'PCOD Analyzer', icon: Zap, color: 'text-bio-coral' },
   { href: '/dashboard/mood', label: 'Mood Tracker', icon: Moon, color: 'text-bio-gold' },
   { href: '/dashboard/safety', label: 'Safety Routes', icon: Shield, color: 'text-bio-violet' },
+  { href: '/dashboard/period', label: 'Period Tracker', icon: Droplets, color: 'text-bio-coral' },
   { href: '/dashboard/architecture', label: 'Architecture', icon: MapPin, color: 'text-bio-teal' },
 ];
 

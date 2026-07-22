@@ -15,6 +15,7 @@ const navItems = [
   { href: '/dashboard/pcod', label: 'PCOD', protected: true },
   { href: '/dashboard/mood', label: 'Mood', protected: true },
   { href: '/dashboard/safety', label: 'Safety', protected: true },
+  { href: '/dashboard/period', label: 'Period', protected: true },
   { href: '/dashboard/architecture', label: 'Architecture', protected: true },
 ];
 

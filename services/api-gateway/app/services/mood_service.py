@@ -32,7 +32,8 @@ async def calculate_cycle_day(db: AsyncSession, user_id: UUID, log_date: date) -
 async def create_mood_log(
     db: AsyncSession,
     user_id: UUID,
-    body: MoodLogRequest
+    body: MoodLogRequest,
+    override_cycle_day: int | None = None
 ) -> MoodLogResponse:
     """Create a new mood log entry."""
     
@@ -49,8 +50,11 @@ async def create_mood_log(
         logger.warning(f"Mood already logged for user {user_id} on {body.date}")
         # Could raise exception here in production
     
-    # Calculate cycle day
-    cycle_day = await calculate_cycle_day(db, user_id, body.date)
+    # Use period-tracker cycle_day if provided (more accurate), otherwise calculate from profile
+    if override_cycle_day is not None:
+        cycle_day = override_cycle_day
+    else:
+        cycle_day = await calculate_cycle_day(db, user_id, body.date)
     
     # Create log
     mood_log = MoodLog(
