@@ -25,3 +25,13 @@ class UserHealthProfileResponse(BaseModel):
     last_period_date: Optional[date]
     health_goals: dict
     onboarding_complete: bool
+
+
+class UserActivityResponse(BaseModel):
+    """Recent user activity response schema."""
+    id: str
+    module: str
+    title: str
+    description: str
+    timestamp: str
+    icon_name: str

@@ -10,6 +10,9 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+from dotenv import load_dotenv
+load_dotenv(os.path.join(os.path.dirname(__file__), '../../services/api-gateway/.env'))
+
 # Override URL from environment
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
@@ -18,7 +21,9 @@ DATABASE_URL = os.getenv(
 config.set_main_option("sqlalchemy.url", DATABASE_URL)
 
 # Import all models so Alembic detects them
-from services.api_gateway.app.models import Base  # noqa: adjust path as needed
+import sys
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../services/api-gateway')))
+from app.models import Base
 target_metadata = Base.metadata
 
 

@@ -10,8 +10,10 @@ from app.models.user import (
 )
 from app.models.period import PeriodLog, PeriodSymptom
 from app.services.audit import AuditLog  # noqa: F401 — registers table with Base.metadata
+from app.database import Base
 
 __all__ = [
+    "Base",
     "User",
     "UserHealthProfile",
     "PCODAnalysis",

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { fadeInItem, staggeredFadeIn } from '@/lib/animation';
 import { CycleRing } from '@/components/period/CycleRing';
 import { useCurrentCycle } from '@/hooks/usePeriod';
+import { useRecentActivity } from '@/hooks/useActivity';
 
 const modules = [
   {
@@ -39,6 +40,7 @@ const modules = [
 
 export default function DashboardPage() {
   const { data: currentStatus } = useCurrentCycle();
+  const { data: activities, isLoading: isLoadingActivity } = useRecentActivity();
 
   return (
     <div className="max-w-6xl mx-auto space-y-12">
@@ -125,9 +127,38 @@ export default function DashboardPage() {
         className="space-y-4"
       >
         <h2 className="text-2xl font-display font-bold">Recent Activity</h2>
-        <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-glass text-center text-text-muted">
-          <p>No activity yet. Start by using one of the modules above.</p>
-        </div>
+        
+        {isLoadingActivity ? (
+          <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-glass text-center text-text-muted">
+            <p>Loading your activity...</p>
+          </div>
+        ) : activities && activities.length > 0 ? (
+          <div className="space-y-3">
+            {activities.map((activity) => (
+              <div 
+                key={activity.id} 
+                className="p-4 rounded-xl bg-white/5 border border-white/10 backdrop-blur-glass flex items-start gap-4 hover:bg-white/10 transition-colors"
+              >
+                <div className="w-10 h-10 rounded-full bg-bio-teal/20 flex items-center justify-center text-bio-teal shrink-0">
+                  {activity.module === 'Period Tracker' ? '🔴' : activity.module === 'Mood Tracker' ? '🌙' : activity.module === 'PCOD Analyzer' ? '🧬' : '🛡️'}
+                </div>
+                <div className="flex-1">
+                  <div className="flex items-center justify-between">
+                    <h4 className="font-semibold">{activity.title}</h4>
+                    <span className="text-xs text-text-muted">
+                      {new Date(activity.timestamp).toLocaleDateString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
+                    </span>
+                  </div>
+                  <p className="text-sm text-text-muted">{activity.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="p-6 rounded-xl bg-white/5 border border-white/10 backdrop-blur-glass text-center text-text-muted">
+            <p>No activity yet. Start by using one of the modules above.</p>
+          </div>
+        )}
       </motion.section>
     </div>
   );

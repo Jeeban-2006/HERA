@@ -104,7 +104,7 @@ def generate_row(subtype):
     
     return row
 
-def generate_dataset(num_rows=3000):
+def generate_dataset(num_rows=100000):
     print(f"Generating {num_rows} synthetic rows...")
     data = []
     

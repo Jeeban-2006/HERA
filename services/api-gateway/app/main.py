@@ -11,7 +11,7 @@ from slowapi import _rate_limit_exceeded_handler
 
 from app.config import settings
 from app.database import engine, Base
-from app.routers import auth, users, pcod, mood, safety
+from app.routers import auth, users, pcod, mood, safety, period
 from app.routers.compliance import router as compliance_router
 from app.middleware.rate_limit import limiter
 from app.middleware.security import SecurityHeadersMiddleware
@@ -109,6 +109,7 @@ def create_app() -> FastAPI:
     app.include_router(users.router,       prefix="/users",   tags=["Users"])
     app.include_router(pcod.router,        prefix="/pcod",    tags=["PCOD"])
     app.include_router(mood.router,        prefix="/mood",    tags=["Mood"])
+    app.include_router(period.router,      prefix="/period",  tags=["Period Tracker"])
     app.include_router(safety.router,      prefix="/safety",  tags=["Safety"])
     app.include_router(compliance_router,  prefix="/users",   tags=["DPDP Compliance"])
     app.include_router(metrics_router)     # /metrics — Prometheus scrape endpoint

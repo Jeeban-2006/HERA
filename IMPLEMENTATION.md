@@ -1,6 +1,6 @@
 # HERA — Implementation Guide
 
-> Complete technical reference for every layer of the HERA platform. Updated through **Layer 7 (Production Security)**.
+> Complete technical reference for every layer of the HERA platform. Updated through **Layer 9 (Alembic Migrations)**.
 
 ---
 
@@ -418,11 +418,31 @@ Response:
 
 ---
 
+## Layer 8 — Period Tracker
+
+### Prediction Algorithm
+
+1. The API Gateway calculates the user's cycle day by comparing today's date against the `last_period_date` and `cycle_length` stored in the database.
+2. It classifies the cycle into one of four phases: Menstrual (Days 1-5), Follicular (Days 6-14), Ovulation (Days 15-16), or Luteal (Days 17+).
+3. The Mood Service hooks into this engine dynamically, assigning each logged mood an accurate `cycle_day` based on the user's latest Period logs, rather than relying on a static user profile.
+
+---
+
+## Layer 9 — Alembic Migrations
+
+### Migration Workflow
+
+The database schema is no longer defined by `create_all`. It is fully managed by Alembic.
+1. Revisions are created using `alembic revision --autogenerate -m "message"`.
+2. Migrations are executed using `alembic -c db/migrations/alembic.ini upgrade head` from the root directory.
+3. The migrations natively load `.env` to locate the async database URL, and properly map the synchronous `psycopg2` driver in `env.py` for execution.
+
+---
+
 ## 🚧 Planned Next Layers
 
 | Layer | Description |
 |---|---|
-| **Layer 6** | WebSocket real-time events (SOS live tracking, mood updates) |
-| **Layer 8** | Twilio SMS/Email on SOS; push notifications |
-| **Layer 9** | Alembic database migrations (replace create_all with proper versioning) |
-| **Layer 10** | AWS ECS deployment with Terraform, RDS + ElastiCache, GitHub Actions CI/CD |
+| **Layer 10** | WebSocket real-time events (SOS live tracking, mood updates) |
+| **Layer 11** | Twilio SMS/Email on SOS; push notifications |
+| **Layer 12** | AWS ECS deployment with Terraform, RDS + ElastiCache, GitHub Actions CI/CD |
