@@ -222,6 +222,11 @@ Please provide warm, supportive, actionable, and medically accurate responses. E
           <span className="mt-3 px-3 py-1 rounded-full text-xs bg-bio-teal/10 text-bio-teal border border-bio-teal/30 font-mono">
             {result.confidence}% confidence
           </span>
+          <div className="mt-4 text-center">
+            <p className="text-[10px] text-text-muted/70 max-w-[150px] leading-tight font-body">
+              *Upload blood lab reports in the analysis form for higher AI confidence.
+            </p>
+          </div>
         </GlassCard>
 
         {/* Driver Breakdown */}
